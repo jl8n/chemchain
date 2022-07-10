@@ -21,6 +21,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."\
       },\
       {\
+        "name": "backend",\
+        "reference": "workspace:backend"\
+      },\
+      {\
         "name": "web",\
         "reference": "workspace:web"\
       }\
@@ -28,6 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
+      ["backend", ["workspace:backend"]],\
       ["chemchain", ["workspace:."]],\
       ["web", ["workspace:web"]]\
     ],\
@@ -5858,6 +5863,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-plugin-transform-react-remove-prop-types", "npm:0.4.24"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["backend", [\
+        ["workspace:backend", {\
+          "packageLocation": "./backend/",\
+          "packageDependencies": [\
+            ["backend", "workspace:backend"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["balanced-match", [\
