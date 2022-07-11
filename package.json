@@ -1,8 +1,4 @@
 {
   "name": "chemchain",
-  "packageManager": "yarn@3.2.1",
-  "workspaces": [
-    "web",
-    "backend"
-  ]
+  "private": true
 }
