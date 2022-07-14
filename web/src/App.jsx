@@ -1,29 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import logo from './logo.svg';
+import { Link } from "react-router-dom";
 import './App.scss';
+
 
 function App() {
   const [info, setInfo] = useState([]);
-  const [account, setAccount] = useState(); // state variable to set account.
-  const [error, setError] = useState([]);
 
-  const connectWallet= async () => {
-    if (typeof window !== 'undefined' && typeof window.ethereum !== 'undefined') {
-      try {
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const web3 = new Web3(window.ethereum || 'http://localhost:7545');
-        const accounts = await web3.eth.requestAccounts();
-        setAccount(accounts[0]);
-      } catch {
-        setError(error);
-      }
 
-    } else {
-      // meta mask not installed
-      console.log('Please install MetaMask');
-    }
-  }
+
+
 
   useEffect(() => {
     const load = async () => {
@@ -58,13 +45,19 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <nav
+          style={{
+            borderBottom: "solid 1px",
+            paddingBottom: "1rem",
+          }}
+        >
+          <Link to="/login">login</Link> |{" "}
+          <Link to="/expenses">Expenses</Link>
+        </nav>
         <h3>Chemchain</h3>
-          { account }
 
-          <button onClick={connectWallet}>
-            Connect Wallet
-          </button>
+
+
 
           { info.map(d => (
             <li key={ d.data.thumbnail } style={{ listStyle: 'none' }}>

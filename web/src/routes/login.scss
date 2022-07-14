@@ -1,0 +1,22 @@
+.title {
+    color: #F8B195;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.flex { // TODO: combine with global css
+    display: flex;
+}
+
+.column {  // TODO: combine with global css
+    display: flex;
+    flex-direction: column;
+}
+
+center {  // TODO: combine with global css
+    justify-content: center;
+    align-items: center;
+}
