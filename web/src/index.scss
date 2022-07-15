@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #355C7D;
+  background-image: linear-gradient(to right top, #051828, #082235, #0c2d42, #0f3850, #11435e);  
 }
 
 code {
@@ -26,6 +26,8 @@ code {
   justify-content: center;
   align-items: center;
 }
+
+
 
 input {
   padding: 8px;

@@ -3,6 +3,7 @@ import Web3 from 'web3';
 import './login.scss';
 
 
+
 export default function Login() {
   /* reactive variables */
   const [account, setAccount] = useState(); // state variable to set account.
@@ -43,7 +44,7 @@ export default function Login() {
             web3 = new Web3(window.ethereum);
         } else if (window.web3) {
             web3 = new Web3(window.web3.currentProvider);
-        };
+        } else { return; }
 
         // Check if User is already connected by retrieving the accounts
         web3.eth.getAccounts().then(async (addr) => {
@@ -60,16 +61,22 @@ export default function Login() {
   
 
   return (
-    <div className='grid'>
-    <div className='left'></div>
+    <div className='page grid'>
+    <header>
+      <div className='logo'>web3 fucking sucks</div>
+      <button className="wallet">{ account }</button>
+    </header>
   
-    <div className='right'>
+    <main>
 
       <div className="column center">
         <h1 className='title'>Login</h1>
         <div className="column center">{ ethereum &&
-          <button onClick={ getWallet }>Connect wallet</button> }
-          <div>{ account }</div>
+          <div>
+            <button className="btn-main btn-wallet" onClick={ getWallet }>Connect wallet</button>
+            <button className="btn-main btn-about">Send me crypto</button> 
+          </div>
+        }
         </div>
         <div>
           { !ethereum &&
@@ -80,6 +87,9 @@ export default function Login() {
           }
         </div>
       </div>
+    </main>
+    <div className="scrollContent">
+      test
     </div>
 
 
