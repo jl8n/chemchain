@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import './index.scss';
 import App from './App';
-import Login from "./routes/login";
+import Login from "./routes/Login/Login";
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Web3 from 'web3';
-import logo from './logo.svg';
 import { Link } from "react-router-dom";
 import './App.scss';
 

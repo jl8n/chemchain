@@ -1,0 +1,117 @@
+$header-height: 80px;
+
+@font-face {
+  font-family: 'Lobster';
+  // TODO: change url to absolute path
+  src: local('Lobster'), url(../../assets/fonts/lobster-v28-latin-regular.woff2) format('woff2');
+
+}
+
+@font-face {
+  font-family: 'Assistant';
+  // TODO: change url to absolute path
+  src: local('Assistant'), url(../../assets/fonts/assistant-v18-latin-regular.woff2) format('woff2');
+
+
+}
+
+html, body, #root, .page {
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-family: Lobster;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-family: Assistant;
+
+}
+
+h3 {
+  font-size: 1.5em;
+  font-family: Assistant;
+  font-weight: lighter;
+}
+
+.separator {
+  height: 1px;
+  width: 50px;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: .1875rem;
+}
+
+.logo {
+  position: fixed;
+}
+.logo-image {
+  height: 55px;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: $header-height 1fr;
+}
+
+header {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #e0e2ee;
+}
+
+main {
+
+}
+
+.first-section {
+  display: flex;
+  height: calc(100vh - $header-height);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: #ffffff;
+}
+
+.second-section {
+  height: 5000px;
+  background-color: antiquewhite;
+}
+
+.wallet {
+  color: #e0e2ee;
+  width: 200px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  background-color: inherit;
+  border: 1px solid #e0e2ee;
+
+  &:hover {
+      background-color: #34797d;
+      border-color: #34797d;
+  }
+  &:active {
+      background-color: hsla(0, 0%, 100%, 0.37);
+      border-color: hsla(0, 0%, 100%, 0.274);
+  }
+}
+
+.btn-main {
+  padding: 15px 25px;
+  font-size: 1em;
+}
+
+.btn-wallet {
+  color: #ffffff;
+  background-color: #34797d;
+}
+
+.btn-about {
+  background-color: #e0e0e0;
+  border: 1px solid #ffffff;
+}

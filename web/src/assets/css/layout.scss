@@ -1,0 +1,102 @@
+$xs: 3px;
+$sm: 7px;
+$md: 13px;
+$lg: 17px;
+$xl: 25px;
+
+/* flexbox */
+.flex {
+    display: flex;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+.items-center { align-items: center; }
+
+
+.gap-xs { gap: $xs; }
+.gap-sm { gap: $sm; }
+.gap-md { gap: $md; }
+.gap-lg { gap: $lg; }
+.gap-xl { gap: $xl; }
+
+.gap-y-xs { row-gap: $xs; }
+.gap-y-sm { row-gap: $sm; }
+.gap-y-md { row-gap: $md; }
+.gap-y-lg { row-gap: $lg; }
+.gap-y-xl { row-gap: $xl; }
+
+.gap-x-xs { column-gap: $xs; }
+.gap-x-sm { column-gap: $lg; }
+.gap-x-md { column-gap: $md; }
+.gap-x-lg { column-gap: $lg; }
+.gap-x-xl { column-gap: $xl; }
+
+/* margin */
+.mt-xs { margin-top: $xs }
+.mr-xs { margin-right: $xs }
+.mb-xs { margin-bottom: $xs; }
+.ml-xs { margin-left: $xs }
+
+.mt-sm { margin-top: $sm }
+.mr-sm { margin-right: $sm }
+.mb-sm { margin-bottom: $sm; }
+.ml-sm { margin-left: $sm }
+
+.mt-md { margin-top: $md }
+.mr-md { margin-right: $md }
+.mb-md { margin-bottom: $md; }
+.ml-md { margin-left: $md }
+
+.mt-lg { margin-top: $lg }
+.mr-lg { margin-right: $lg }
+.mb-lg { margin-bottom: $lg; }
+.ml-lg { margin-left: $lg }
+
+.mt-xl { margin-top: $xl }
+.mr-xl { margin-right: $xl }
+.mb-xl { margin-bottom: $xl; }
+.ml-xl { margin-left: $xl }
+
+/* padding */
+.pt-xs { padding-top: $xs }
+.pr-xs { padding-right: $xs }
+.pb-xs { padding-bottom: $xs; }
+.pl-xs { padding-left: $xs }
+
+.pt-sm { padding-top: $sm }
+.pr-sm { padding-right: $sm }
+.pb-sm { padding-bottom: $sm; }
+.pl-sm { padding-left: $sm }
+
+.pt-md { padding-top: $md }
+.pr-md { padding-right: $md }
+.pb-md { padding-bottom: $md; }
+.pl-md { padding-left: $md }
+
+.pt-lg { padding-top: $lg }
+.pr-lg { padding-right: $lg }
+.pb-lg { padding-bottom: $lg; }
+.pl-lg { padding-left: $lg }
+
+.pt-xl { padding-top: $xl }
+.pr-xl { padding-right: $xl }
+.pb-xl { padding-bottom: $xl; }
+.pl-xl { padding-left: $xl }

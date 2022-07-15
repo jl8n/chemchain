@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Lobster';
+  // TODO: change url to absolute path
+  src: local('Lobster'), url(assets/fonts/lobster-v28-latin-regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Assistant';
+  // TODO: change url to absolute path
+  src: local('Assistant'), url(assets/fonts/assistant-v18-latin-regular.woff2) format('woff2');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,41 +17,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to right top, #051828, #082235, #0c2d42, #0f3850, #11435e);  
+  background-image: linear-gradient(to right top, #051828, #082235, #113850, #185d85, #307296);  
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.row {
-  display: flex;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-}
-
-.center {
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-input {
-  padding: 8px;
-  border-radius: 8px;
-  border: none;
-
-  &:disabled {
-    background-color: #494949;
-    cursor: not-allowed;
-  }
-}
-
-.italic {
-  font-style: italic;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
