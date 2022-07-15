@@ -1,19 +1,5 @@
 $header-height: 80px;
 
-@font-face {
-  font-family: 'Lobster';
-  // TODO: change url to absolute path
-  src: local('Lobster'), url(../../assets/fonts/lobster-v28-latin-regular.woff2) format('woff2');
-
-}
-
-@font-face {
-  font-family: 'Assistant';
-  // TODO: change url to absolute path
-  src: local('Assistant'), url(../../assets/fonts/assistant-v18-latin-regular.woff2) format('woff2');
-
-
-}
 
 html, body, #root, .page {
   height: 100%;

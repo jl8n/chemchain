@@ -72,7 +72,7 @@ export default function Login() {
   
 
   return (
-    <div className='page grid'>
+  <div className='page grid'>
     <header className="justify-between" >
       <div className='logo row items-center gap-x-lg'>
         <Logo className='logo-image'/>
@@ -101,8 +101,7 @@ export default function Login() {
         <div>
           { !ethereum &&
           <div className='column center'>
-            <p>You have to install a <a href='https://metamask.io/download/'>dumbass crypto wallet browser extension</a> to use every web3 app, including this one.</p>
-            <div className='italic'>But crypto will totally be built into browsers in the future.</div>
+            <p>This is a <a href='https://www.nytimes.com/interactive/2022/03/18/technology/web3-definition-internet.html'>Web3</a> application, and you need to install a <a href='https://metamask.io/download/' target="_blank" rel="noreferrer">dumbass crypto wallet browser extension</a> in order to login.</p>
           </div>
           }
         </div>
