@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ReactComponent as Logo } from 'assets/svg/mantaray.svg';
-import Web3 from 'web3';
+//import Web3 from 'web3';
+import { ethers } from 'ethers';
 import 'assets/css/layout.scss';
 import './Login.scss';
 
@@ -16,16 +17,19 @@ export default function Login() {
   const [account, setAccount] = useState(); // state variable to set account.
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const ref = useRef(null);
-  const ethereum = window.ethereum;
 
 
 
   const getWallet = async () => {
     try {
-      await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const web3 = new Web3(window.ethereum || 'http://localhost:7545');
-      const accounts = await web3.eth.requestAccounts();
-      setAccount(accounts[0]);
+      const eth = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      console.log('eth', eth);
+      //const web3 = new Web3(window.ethereum || 'http://localhost:7545');
+      const provider = new ethers.providers.Web3Provider(window.ethereum || 'http://localhost:7545')
+      const accounts = await provider.send("eth_requestAccounts", []);
+      console.log('provider', provider);
+
+      //setAccount(accounts[0]);
       login();
     } catch {
       console.log('error getting wallet from user');
@@ -40,23 +44,18 @@ export default function Login() {
        const checkConnection = async () => {
         console.log('checking accounts');
 
-        // check if browser is running MetaMask
-        let web3;
-        if (window.ethereum) {
-            web3 = new Web3(window.ethereum);
-        } else if (window.web3) {
-            web3 = new Web3(window.web3.currentProvider);
-        } else { return; }
 
         // check if MetaMask account is already connected
-        setIsLoggedIn((await web3.eth.getAccounts()).length > 0);
-
+        //setIsLoggedIn((await web3.eth.getAccounts()).length > 0);
+        
+        /*
         if (isLoggedIn) {
           web3.eth.getAccounts().then(async (addr) => {
             const accounts = await web3.eth.requestAccounts();
             setAccount(accounts[0])
         });
         }
+        */
 
        // if (web3.eth.getAccounts())
 
@@ -88,7 +87,7 @@ export default function Login() {
         <h3>Store and release secure files to anyone at any time, even after you're gone.</h3>
 
         <div>
-        { ethereum &&
+        { window.ethereum &&
           <div>
             <div className='row gap-x-sm'>
               <button className='btn-main btn-wallet' onClick={ getWallet }>Login</button>
@@ -99,7 +98,7 @@ export default function Login() {
         </div>
 
         <div>
-          { !ethereum &&
+          { !window.ethereum &&
           <div className='column center'>
             <p>This is a <a href='https://www.nytimes.com/interactive/2022/03/18/technology/web3-definition-internet.html'>Web3</a> application, and you need to install a <a href='https://metamask.io/download/' target="_blank" rel="noreferrer">dumbass crypto wallet browser extension</a> in order to login.</p>
           </div>
