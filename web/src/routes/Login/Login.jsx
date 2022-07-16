@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as Logo } from 'assets/svg/mantaray.svg';
+import { ReactComponent as Logo } from '../../assets/svg/mantaray.svg';
 //import Web3 from 'web3';
 import { ethers } from 'ethers';
-import 'assets/css/layout.scss';
+import '../../assets/css/layout.scss';
 import './Login.scss';
 
 
@@ -25,9 +25,12 @@ export default function Login() {
       const eth = await window.ethereum.request({ method: 'eth_requestAccounts' });
       console.log('eth', eth);
       //const web3 = new Web3(window.ethereum || 'http://localhost:7545');
-      const provider = new ethers.providers.Web3Provider(window.ethereum || 'http://localhost:7545')
+      const provider = new ethers.providers.Web3Provider(window.ethereum || 'http://localhost:7545');
+      const signer = provider.getSigner(); 
       const accounts = await provider.send("eth_requestAccounts", []);
-      console.log('provider', provider);
+      const signature = await signer.signMessage("Hello World");  // TODO: check if current sign request exists
+
+      console.log(accounts, signature);
 
       //setAccount(accounts[0]);
       login();
