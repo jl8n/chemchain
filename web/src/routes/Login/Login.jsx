@@ -9,7 +9,7 @@ import './Login.scss';
 
 export default function Login() {
   const navigate = useNavigate();
-  const handleOnClick = useCallback(() => navigate('/', {replace: true}), [navigate]);
+  const login = useCallback(() => navigate('/', {replace: true}), [navigate]);
 
   /* reactive variables */
   
@@ -26,7 +26,7 @@ export default function Login() {
       const web3 = new Web3(window.ethereum || 'http://localhost:7545');
       const accounts = await web3.eth.requestAccounts();
       setAccount(accounts[0]);
-      handleOnClick();
+      login();
     } catch {
       console.log('error getting wallet from user');
     }

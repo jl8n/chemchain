@@ -1,33 +1,25 @@
+@import 'components';
+
 $xs: 3px;
 $sm: 7px;
 $md: 13px;
 $lg: 17px;
 $xl: 25px;
 
+/* colors */
+$primary: #3aa6a6;
+
 /* flexbox */
-.flex {
-    display: flex;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-}
-
+.flex { display: flex; }
+.row { display: flex; flex-direction: row; }
+.column { display: flex; flex-direction: column; }
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .justify-center { display: flex; justify-content: center; }
 .justify-between { display: flex; justify-content: space-between; }
-
 .items-center { align-items: center; }
 
 

@@ -1,4 +1,7 @@
 
+@import 'assets/css/layout.scss';
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -24,18 +27,19 @@
   color: #61dafb;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  padding: 8px;
-  background-color: hsl(0, 0%, 60%);
+.userDropdown {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  //text-overflow: ellipsis;
+  color: #e8f5f8;
+  background-color: $primary;
+}
 
-  &:hover {
-  background-color: hsl(0, 0%, 70%);
-  }
-  
+main > section:nth-child(1) {
+  margin: auto;
+  width: 80%;
 }
 
 @keyframes App-logo-spin {
