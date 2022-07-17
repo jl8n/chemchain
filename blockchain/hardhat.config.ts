@@ -5,11 +5,6 @@ const config: HardhatUserConfig = {
   solidity: "0.8.9",
   paths: {
     artifacts: "../web/src/artifacts"
-  },
-  networks: {
-    hardhat: {
-      chainId: 1337
-    }
   }
 };
 
