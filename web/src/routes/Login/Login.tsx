@@ -5,7 +5,7 @@ import { ReactComponent as Logo } from '../../assets/svg/mantaray.svg';
 import { ethers } from 'ethers';
 import '../../assets/css/layout.scss';
 import './Login.scss';
-
+declare var window: any;
 
 
 export default function Login() {
@@ -16,8 +16,7 @@ export default function Login() {
   
   const [account, setAccount] = useState(); // state variable to set account.
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const ref = useRef(null);
-
+  const ref = useRef<null | HTMLDivElement>(null); 
 
 
   const getWallet = async () => {
@@ -28,7 +27,7 @@ export default function Login() {
       const provider = new ethers.providers.Web3Provider(window.ethereum || 'http://localhost:7545');
       const signer = provider.getSigner(); 
       const accounts = await provider.send("eth_requestAccounts", []);
-      const signature = await signer.signMessage("Hello World");  // TODO: check if current sign request exists
+      const signature = await signer.signMessage("Login to SeaRay");  // TODO: check if current sign request exists
 
       console.log(accounts, signature);
 

@@ -4,6 +4,7 @@ import { ethers } from 'ethers';
 import { ReactComponent as Logo } from 'assets/svg/mantaray.svg';
 import Greeter from 'artifacts/contracts/Greeter.sol/Greeter.json'
 import './App.scss';
+declare var window: any;
 
 const greeterAddr = '0xa513e6e4b8f2a923d98304ec87f64353c4d5c853';
 
@@ -41,6 +42,7 @@ function App() {
   }
 
   async function setGreeting() {
+    console.log('fire setGreeting');
     //if (!greeting) { return; }  TODO: add reactive greeting
     if (typeof window.ethereum !== 'undefined') {
       await handleAccount();
@@ -83,22 +85,22 @@ function App() {
         <form className='column gap-y-md'>
           <div className="row gap-x-md">
             <div className="column">
-              <label name="sendee">Firstname</label>
+              <label>Firstname</label>
               <input type="text" />
             </div>
             <div className="column">
-              <label name="sendee">Lastname</label>
+              <label>Lastname</label>
               <input type="text" />
             </div>
           </div>
 
           <div className="row gap-x-md">
             <div className="column">
-              <label name="sendee">Email</label>
+              <label>Email</label>
               <input type="email" />
             </div>
             <div className="column">
-              <label name="sendee">Phone</label>
+              <label>Phone</label>
               <input type="tel" />
             </div>
           </div>
