@@ -73,8 +73,6 @@ export default function Login() {
 
   });
 
-  
-
   return (
     <div className='page grid'>
       <header className="justify-between" >
@@ -89,7 +87,7 @@ export default function Login() {
 
           <h2>Time-released private files</h2>
           <div className='separator' />
-          <h3>Store and release secure files to anyone at any time, even after you're gone.</h3>
+          <h3>Store and release secure files to anyone at any time, even after you&apos;re gone.</h3>
 
           <div>
             { window.ethereum &&
