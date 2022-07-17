@@ -1,5 +1,7 @@
 # sea-ray
 
+Time-released private files built on Smart Contracts.
+
 > This is my first React app so beware
 
 # Web3 Stack

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "deploy": "npx hardhat run --network localhost scripts/deploy.ts",
-    "node": "npx harhat node",
+    "node": "npx harchat node",
     "test": "npx hardhat test"
   }
 }

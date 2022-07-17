@@ -2,11 +2,11 @@ import React, { FC, useState, useEffect, useCallback, SyntheticEvent } from 'rea
 import { useNavigate, Link } from 'react-router-dom';
 import { ethers } from 'ethers';
 import { ReactComponent as Logo } from 'assets/svg/mantaray.svg';
-import Greeter from 'artifacts/contracts/Greeter.sol/Greeter.json';
+import Greeter from 'artifacts/contracts/Greeter.sol/Greeter.json';  // greeter abi
+import smartContract from 'artifacts/smart-contract.json';  // smart contract hash
 import './App.scss';
-declare let window: any;
 
-const greeterAddr = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
+declare let window: any;
 
 
 const App:FC = () => {
@@ -38,7 +38,7 @@ const App:FC = () => {
   async function fetchGreeting() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const contract = new ethers.Contract(greeterAddr, Greeter.abi, provider);
+      const contract = new ethers.Contract(smartContract.address, Greeter.abi, provider);
       try {
         const data = await contract.greet();
         console.log('data: ', data);
@@ -54,7 +54,7 @@ const App:FC = () => {
       await requestAccount();
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(greeterAddr, Greeter.abi, signer);
+      const contract = new ethers.Contract(smartContract.address, Greeter.abi, signer);
       const transaction = await contract.setGreeting(greeting);
       await transaction.wait();
       fetchGreeting();
@@ -87,7 +87,7 @@ const App:FC = () => {
   
       <main>
         <section className="gap-md">
-          <div>{ greeterAddr }</div>
+          <div>{ smartContract.address }</div>
           <div>{ greeting }</div>
           <button onClick={ fetchGreeting }>Fetch greeting!</button>
           <form onSubmit={ (e: React.SyntheticEvent) => {
