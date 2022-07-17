@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useCallback } from 'react';
+import React, { FC, useState, useEffect, useCallback, SyntheticEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ethers } from 'ethers';
 import { ReactComponent as Logo } from 'assets/svg/mantaray.svg';
@@ -48,7 +48,8 @@ const App:FC = () => {
     }    
   }
 
-  async function pushGreeting() {
+  async function pushGreeting(e: SyntheticEvent) {
+    e.preventDefault();
     if (typeof window.ethereum !== 'undefined') {
       await requestAccount();
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -89,7 +90,16 @@ const App:FC = () => {
           <div>{ greeterAddr }</div>
           <div>{ greeting }</div>
           <button onClick={ fetchGreeting }>Fetch greeting!</button>
-          <form onSubmit={ pushGreeting }>
+          <form onSubmit={ (e: React.SyntheticEvent) => {
+            pushGreeting(e);
+
+            const target = e.target as typeof e.target & {
+              email: { value: string };
+              password: { value: string };
+            };
+            const email = target.email.value; // typechecks!
+            const password = target.password.value; // typechec
+          }}>
             <input type="text" value={ greeting } onChange={ (e) => setGreet(e.target.value) }name="greeting" />
             <input type="submit" value="Submit" />
           </form>
